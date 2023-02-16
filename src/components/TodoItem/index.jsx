@@ -46,11 +46,14 @@ const TodoItem = ({ item }) => {
   return (
     <li className={item.done ? 'item done' : 'item'}>
       {/* Done Button */}
-      <ButtonAction handleEffect={handleDoneItem} customClass="buttom-check">
+      <ButtonAction handleEffect={handleDoneItem}>
         {item.done ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
       </ButtonAction>
 
-      <p className="item-text">{item.text}</p>
+      <div className="item-content-wrapper">
+        <h3 className="content-title">{item.title}</h3>
+        <p className="content-body">{item.body}</p>
+      </div>
 
       <div className="item-actions-buttons-container">
         {/* Edit Button */}

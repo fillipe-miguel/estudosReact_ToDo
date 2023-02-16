@@ -13,26 +13,35 @@ import './style.css';
 
 const FormAddTodo = () => {
   const dispatch = useDispatch();
-  const [text, setText] = useState('');
+  const [item, setItem] = useState({ title: '', body: '' });
 
-  function handleChange(event) {
-    setText(event.target.value);
+  function handleTitleChange(event) {
+    setItem({ ...item, title: event.target.value });
+  }
+
+  function handleBodyChange(event) {
+    setItem({ ...item, body: event.target.value });
   }
 
   function addItemEvent(event) {
     event.preventDefault();
 
-    if (!text == '') {
-      setText('');
-      dispatch(addItem(text));
+    if (!item.title == '') {
+      setItem({ body: '', title: '' });
+      dispatch(addItem(item));
     }
   }
 
   return (
     <form className="todo-form-container">
       <Input
-        handleChange={handleChange}
-        value={text}
+        handleChange={handleTitleChange}
+        value={item.title}
+        placeholder="Adicione o título da sua tarefa aqui:"
+      />
+      <Input
+        handleChange={handleBodyChange}
+        value={item.body}
         placeholder="Adicione sua tarefa aqui:"
       />
 

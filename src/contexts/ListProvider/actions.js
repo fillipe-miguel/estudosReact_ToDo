@@ -1,8 +1,8 @@
 import { Item } from './class/item';
 import * as types from './types';
 
-export function addItem(text) {
-  const item = new Item(text);
+export function addItem({ title, body }) {
+  const item = new Item(title, body);
   return { type: types.ADD_ITEM, payload: item };
 }
 
