@@ -49,13 +49,13 @@ const FormEditTodo = ({ handleClose, item }) => {
         label="Título"
         handleChange={handleTitleChange}
         value={title}
-        placeholder="Edite sua tarefa aqui:"
+        placeholder="Edite o título da tarefa aqui:"
       />
       <Input
         label="Descrição"
         handleChange={handleBodyChange}
         value={body}
-        placeholder="Edite sua tarefa aqui:"
+        placeholder="Edite a descrição da tarefa aqui:"
       />
       <ButtonForm handleEffect={editItemEvent} text="Salvar Edição" />
       <ButtonForm handleEffect={handleClose} text="Cancelar Edição" />

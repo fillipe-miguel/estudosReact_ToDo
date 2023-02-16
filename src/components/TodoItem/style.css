@@ -1,26 +1,29 @@
 .done {
-  text-decoration: line-through;
-  transition: all 0.5s;
+  background-color: rgb(24, 163, 3);
+
   font-style: italic;
-  background-color: aquamarine;
+  text-decoration: line-through;
+
+  transition: all 0.5s;
 }
 
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 
   max-width: 100%;
-
   margin-top: 10px;
   padding: 22px;
   border-radius: 10px;
 
   transition: all 0.5s;
 
-  list-style: none;
   box-shadow: 0px 0px 15px 1px #0000004a;
+  list-style: none;
+  overflow: hidden;
+
+  position: relative;
 }
 
 .form-edit-container-inItem {
@@ -35,7 +38,6 @@
 .item-content-wrapper {
   flex-grow: 2;
   padding: 0 22px;
-  max-width: calc(100% - 120px);
 }
 
 .content-title {
@@ -56,4 +58,17 @@
 
 .edit-form {
   overflow: hidden;
+}
+
+.setting-button-wrapper {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+
+  transition: 2s;
+}
+
+.setting-button-wrapper:hover {
+  transform: rotate(360deg);
+  transition: 2s;
 }

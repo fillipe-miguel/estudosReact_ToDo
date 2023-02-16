@@ -21,7 +21,6 @@ const Todo = () => {
     setAddItemShow(!addItemShow);
   };
 
-  //TODO: fazer o esquema de esconder o form
   return (
     <Container>
       {addItemShow && <FormAddTodo />}

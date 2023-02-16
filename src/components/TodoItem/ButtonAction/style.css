@@ -10,4 +10,16 @@
 
   cursor: pointer;
   font-size: 30px;
+  transition: 1s;
 }
+
+.button-action:hover {
+  transition: 1s;
+  transform: scale(1.2);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+

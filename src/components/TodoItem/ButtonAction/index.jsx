@@ -9,6 +9,8 @@ export const ButtonAction = ({ handleEffect, children, customClass }) => {
   );
 };
 
+//TODO resolver o undefined do classname
+
 ButtonAction.propTypes = {
   handleEffect: P.func.isRequired,
   children: P.node.isRequired,
