@@ -33,7 +33,7 @@ const TodoItem = ({ item }) => {
   }
 
   function toggleEditShow() {
-    setEditItemShow(!editItemShow);
+    if (!item.done) setEditItemShow(!editItemShow);
   }
 
   return (
@@ -48,7 +48,7 @@ const TodoItem = ({ item }) => {
           </ButtonAction>
           <div className="item-content-wrapper">
             <h3 className="content-title">{item.title}</h3>
-            <p className="content-body">{item.body}</p>
+            {!item.done && <p className="content-body">{item.body}</p>}
           </div>
           <div className="item-actions-buttons-container">
             {/* Edit Button */}
