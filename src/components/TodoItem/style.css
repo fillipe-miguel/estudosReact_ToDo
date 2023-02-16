@@ -1,0 +1,35 @@
+.done {
+  text-decoration: line-through;
+  transition: all 0.5s;
+  font-style: italic;
+  background-color: aquamarine;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+
+  max-width: 100%;
+
+  margin-top: 10px;
+  padding: 22px;
+  border-radius: 10px;
+
+  transition: all 0.5s;
+
+  list-style: none;
+  box-shadow: 0px 0px 15px 1px #0000004a;
+}
+
+.item-text {
+  word-wrap: break-word;
+  flex-grow: 2;
+  font-size: 1.2em;
+  margin: 16px 0px;
+  max-width: calc(100% - 120px);
+}
+
+.item-actions-buttons-container {
+  display: flex;
+  flex-direction: row;
+}

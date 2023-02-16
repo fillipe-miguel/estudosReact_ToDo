@@ -1,0 +1,18 @@
+.button-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 10px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.buttom-check {
+  margin-left: 0;
+  margin-right: 10px;
+}
