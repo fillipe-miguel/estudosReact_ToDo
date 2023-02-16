@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { changeDone, deleteItem } from '../../contexts/ListProvider/actions';
 
 // Components
-import TodoForm from '../FormAddTodo';
+import FormEditTodo from '../FormEditTodo';
 import { ButtonAction } from './ButtonAction';
 
 // Style
@@ -32,14 +32,14 @@ const TodoItem = ({ item }) => {
     dispatch(deleteItem(item.id));
   }
 
-  function handleEditItem() {
-    setEditItemShow(true);
+  function toggleEditShow() {
+    setEditItemShow(!editItemShow);
   }
 
   if (editItemShow)
     return (
-      <li className="item">
-        <TodoForm />
+      <li className="item edit-form">
+        <FormEditTodo handleClose={toggleEditShow} item={item} />
       </li>
     );
 
@@ -54,7 +54,7 @@ const TodoItem = ({ item }) => {
 
       <div className="item-actions-buttons-container">
         {/* Edit Button */}
-        <ButtonAction handleEffect={handleEditItem}>
+        <ButtonAction handleEffect={toggleEditShow}>
           <FaEdit />
         </ButtonAction>
 

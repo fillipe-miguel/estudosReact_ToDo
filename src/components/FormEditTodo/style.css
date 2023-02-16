@@ -1,0 +1,13 @@
+.form-edit-container {
+  width: 100%;
+  animation: toShow 0.3s;
+}
+
+@keyframes toShow {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
