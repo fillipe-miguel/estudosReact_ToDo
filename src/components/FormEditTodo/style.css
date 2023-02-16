@@ -1,6 +1,6 @@
 .form-edit-container {
   width: 100%;
-  animation: toShow 0.3s;
+  /* animation: toShow 0.7s cubic-bezier(0.68, -0.22, 0.265, 1.55); */
 }
 
 @keyframes toShow {

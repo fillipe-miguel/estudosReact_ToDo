@@ -36,36 +36,32 @@ const TodoItem = ({ item }) => {
     setEditItemShow(!editItemShow);
   }
 
-  if (editItemShow)
-    return (
-      <li className="item edit-form">
-        <FormEditTodo handleClose={toggleEditShow} item={item} />
-      </li>
-    );
-
   return (
     <li className={item.done ? 'item done' : 'item'}>
-      {/* Done Button */}
-      <ButtonAction handleEffect={handleDoneItem}>
-        {item.done ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
-      </ButtonAction>
-
-      <div className="item-content-wrapper">
-        <h3 className="content-title">{item.title}</h3>
-        <p className="content-body">{item.body}</p>
-      </div>
-
-      <div className="item-actions-buttons-container">
-        {/* Edit Button */}
-        <ButtonAction handleEffect={toggleEditShow}>
-          <FaEdit />
-        </ButtonAction>
-
-        {/* Delete Button */}
-        <ButtonAction handleEffect={handleDeleteItem}>
-          <IoTrashBin />
-        </ButtonAction>
-      </div>
+      {editItemShow ? (
+        <FormEditTodo handleClose={toggleEditShow} item={item} />
+      ) : (
+        <div className="item-content-container">
+          {/* Done Button */}
+          <ButtonAction handleEffect={handleDoneItem}>
+            {item.done ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
+          </ButtonAction>
+          <div className="item-content-wrapper">
+            <h3 className="content-title">{item.title}</h3>
+            <p className="content-body">{item.body}</p>
+          </div>
+          <div className="item-actions-buttons-container">
+            {/* Edit Button */}
+            <ButtonAction handleEffect={toggleEditShow}>
+              <FaEdit />
+            </ButtonAction>
+            {/* Delete Button */}
+            <ButtonAction handleEffect={handleDeleteItem}>
+              <IoTrashBin />
+            </ButtonAction>
+          </div>
+        </div>
+      )}
     </li>
   );
 };

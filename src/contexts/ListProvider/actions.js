@@ -14,6 +14,6 @@ export function changeDone(id) {
   return { type: types.CHANGE_DONE, payload: id };
 }
 
-export function editItem(id, text) {
-  return { type: types.EDIT_ITEM, payload: { id, text } };
+export function editItem(id, title, body) {
+  return { type: types.EDIT_ITEM, payload: { id, title, body } };
 }

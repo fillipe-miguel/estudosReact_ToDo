@@ -14,23 +14,30 @@ import './style.css';
 
 const FormEditTodo = ({ handleClose, item }) => {
   const dispatch = useDispatch();
-  const [text, setText] = useState('');
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
 
   useEffect(() => {
-    setText(item.text);
+    setTitle(item.title);
+    setBody(item.body);
     return () => {
-      setText('');
+      setTitle('');
+      setBody('');
     };
-  }, [item.text]);
+  }, [item.title, item.body]);
 
-  function handleChange(event) {
-    setText(event.target.value);
+  function handleTitleChange(event) {
+    setTitle(event.target.value);
+  }
+
+  function handleBodyChange(event) {
+    setBody(event.target.value);
   }
 
   function editItemEvent() {
-    if (!text == '') {
-      setText('');
-      dispatch(editItem(item.id, text));
+    if (!title == '' && !body == '') {
+      setTitle('');
+      dispatch(editItem(item.id, title, body));
       handleClose();
     }
   }
@@ -38,8 +45,13 @@ const FormEditTodo = ({ handleClose, item }) => {
   return (
     <div className="form-edit-container">
       <Input
-        handleChange={handleChange}
-        value={text}
+        handleChange={handleTitleChange}
+        value={title}
+        placeholder="Edite sua tarefa aqui:"
+      />
+      <Input
+        handleChange={handleBodyChange}
+        value={body}
         placeholder="Edite sua tarefa aqui:"
       />
       <ButtonForm handleEffect={editItemEvent} text="Salvar Edição" />

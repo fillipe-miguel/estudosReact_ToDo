@@ -17,7 +17,10 @@ export default (state = listData, action) => {
 
     case types.EDIT_ITEM:
       return state.map((it) => {
-        if (it.id == action.payload.id) it.text = action.payload.text;
+        if (it.id == action.payload.id) {
+          it.title = action.payload.title;
+          it.body = action.payload.body;
+        }
         return it;
       });
 
