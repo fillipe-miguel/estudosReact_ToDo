@@ -44,12 +44,15 @@ const FormEditTodo = ({ handleClose, item }) => {
 
   return (
     <div className="form-edit-container">
+      <h1 className="edit-form-title">Editando: {item.title}</h1>
       <Input
+        label="Título"
         handleChange={handleTitleChange}
         value={title}
         placeholder="Edite sua tarefa aqui:"
       />
       <Input
+        label="Descrição"
         handleChange={handleBodyChange}
         value={body}
         placeholder="Edite sua tarefa aqui:"

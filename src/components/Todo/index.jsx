@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 // Components
@@ -11,17 +11,26 @@ import { TodoList } from '../TodoList';
 import './style.css';
 
 const Todo = () => {
+  const [addItemShow, setAddItemShow] = useState(false);
   const items = useSelector((state) => state);
 
   const itemsDone = items.filter((item) => item.done);
   const itemsNotDone = items.filter((item) => !item.done);
 
+  const toggleAddItemShow = () => {
+    setAddItemShow(!addItemShow);
+  };
+
   //TODO: fazer o esquema de esconder o form
   return (
     <Container>
-      <h1 className="todo-title">Todo List NOVO</h1>
-      <FormAddTodo></FormAddTodo>
-      <ButtonForm handleEffect={() => {}} text="Toogle Add Form Visibility" />
+      {addItemShow && <FormAddTodo />}
+      <ButtonForm
+        handleEffect={toggleAddItemShow}
+        text={
+          addItemShow ? 'Cancelar adição de tarefa' : 'Adicionar nova tarefa'
+        }
+      />
 
       {itemsNotDone.length > 0 && (
         <TodoList title="A fazer">{itemsNotDone}</TodoList>

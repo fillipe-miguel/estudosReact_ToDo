@@ -35,11 +35,13 @@ const FormAddTodo = () => {
   return (
     <form className="todo-form-container">
       <Input
+        label="Título"
         handleChange={handleTitleChange}
         value={item.title}
         placeholder="Adicione o título da sua tarefa aqui:"
       />
       <Input
+        label="Descrição"
         handleChange={handleBodyChange}
         value={item.body}
         placeholder="Adicione sua tarefa aqui:"

@@ -3,6 +3,10 @@
   /* animation: toShow 0.7s cubic-bezier(0.68, -0.22, 0.265, 1.55); */
 }
 
+.edit-form-title {
+  margin-bottom: 10px;
+}
+
 @keyframes toShow {
   from {
     transform: translateY(-100%);

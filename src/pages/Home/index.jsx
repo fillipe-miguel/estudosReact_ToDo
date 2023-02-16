@@ -23,6 +23,7 @@ const Home = () => {
 
   return (
     <Provider store={store}>
+      <h1>TODO NOVO</h1>
       <Todo />
     </Provider>
   );

@@ -4,16 +4,22 @@ import React from 'react';
 // Style
 import './style.css';
 
-const Input = ({ handleChange, value, placeholder }) => {
+const Input = ({ handleChange, value, placeholder, label }) => {
   return (
-    <input
-      required
-      placeholder={placeholder}
-      className="form-input"
-      onChange={handleChange}
-      type="text"
-      value={value}
-    ></input>
+    <div>
+      <p className={value ? 'input-label' : 'input-label input-label-hidden'}>
+        {label}
+      </p>
+
+      <input
+        required
+        placeholder={placeholder}
+        className="form-input"
+        onChange={handleChange}
+        type="text"
+        value={value}
+      ></input>
+    </div>
   );
 };
 
@@ -24,6 +30,7 @@ Input.defaultProps = {
 Input.propTypes = {
   handleChange: P.func.isRequired,
   value: P.string.isRequired,
+  label: P.string.isRequired,
   placeholder: P.string,
 };
 

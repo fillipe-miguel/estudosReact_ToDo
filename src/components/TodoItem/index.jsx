@@ -32,14 +32,14 @@ const TodoItem = ({ item }) => {
     dispatch(deleteItem(item.id));
   }
 
-  function toggleEditShow() {
+  function toggleEditItemShow() {
     if (!item.done) setEditItemShow(!editItemShow);
   }
 
   return (
     <li className={item.done ? 'item done' : 'item'}>
       {editItemShow ? (
-        <FormEditTodo handleClose={toggleEditShow} item={item} />
+        <FormEditTodo handleClose={toggleEditItemShow} item={item} />
       ) : (
         <div className="item-content-container">
           {/* Done Button */}
@@ -52,7 +52,7 @@ const TodoItem = ({ item }) => {
           </div>
           <div className="item-actions-buttons-container">
             {/* Edit Button */}
-            <ButtonAction handleEffect={toggleEditShow}>
+            <ButtonAction handleEffect={toggleEditItemShow}>
               <FaEdit />
             </ButtonAction>
             {/* Delete Button */}
