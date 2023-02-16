@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 
 // React-icons
 import { FaEdit } from 'react-icons/fa';
@@ -13,12 +13,15 @@ import { useDispatch } from 'react-redux';
 import { changeDone, deleteItem } from '../../contexts/ListProvider/actions';
 
 // Components
+import TodoForm from '../FormAddTodo';
 import { ButtonAction } from './ButtonAction';
 
 // Style
 import './style.css';
 
 const TodoItem = ({ item }) => {
+  const [editItemShow, setEditItemShow] = useState(false);
+
   const dispatch = useDispatch();
 
   function handleDoneItem() {
@@ -30,9 +33,15 @@ const TodoItem = ({ item }) => {
   }
 
   function handleEditItem() {
-    // dispatch(showModal(item))
-    console.log('editando....');
+    setEditItemShow(true);
   }
+
+  if (editItemShow)
+    return (
+      <li className="item">
+        <TodoForm />
+      </li>
+    );
 
   return (
     <li className={item.done ? 'item done' : 'item'}>

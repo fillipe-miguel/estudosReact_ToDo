@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 // Components
-import Container from '../layout/Container';
-import TodoForm from '../TodoForm';
+import Container from '../commons/layout/Container';
+import FormAddTodo from '../FormAddTodo';
 import { TodoList } from '../TodoList';
 
 // Styles
@@ -15,7 +15,7 @@ const Todo = () => {
   return (
     <Container>
       <h1 className="todo-title">Todo List NOVO</h1>
-      <TodoForm></TodoForm>
+      <FormAddTodo></FormAddTodo>
       <TodoList title="TODOS">{items}</TodoList>
     </Container>
   );

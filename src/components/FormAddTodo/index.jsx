@@ -4,10 +4,14 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../contexts/ListProvider/actions';
 
+// Components
+import { ButtonForm } from '../commons/form/Button';
+import Input from '../commons/form/Input';
+
 // Styles
 import './style.css';
 
-const TodoForm = () => {
+const FormAddTodo = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
 
@@ -24,23 +28,17 @@ const TodoForm = () => {
     }
   }
 
-  // TODO: fazer os componentes de input e button para reutilizar no edit-form
   return (
     <form className="todo-form-container">
-      <input
-        required
-        placeholder="Coloque sua tarefa aqui:"
-        className="input-task"
-        onChange={handleChange}
-        type="text"
+      <Input
+        handleChange={handleChange}
         value={text}
-      ></input>
+        placeholder="Adicione sua tarefa aqui:"
+      />
 
-      <button className="button" onClick={addItemEvent}>
-        Adicionar Tarefa
-      </button>
+      <ButtonForm handleEffect={addItemEvent} text="Adicionar Task" />
     </form>
   );
 };
 
-export default TodoForm;
+export default FormAddTodo;
